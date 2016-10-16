@@ -16,22 +16,63 @@ class Movement
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(name="amount", type="decimal", precision=10, scale=2, nullable=false)
      */
-    private $amount;
+    protected $amount;
 
     /**
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
-    private $description;
+    protected $description;
 
     /**
      * @ORM\Column(name="day", type="datetime", length=14, nullable=false)
      */
-    private $day;
+    protected $day;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    public function setDay($day)
+    {
+        $this->day = $day;
+
+        return $this;
+    }
+
+    public function getDay()
+    {
+        return $this->day;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
     public function jsonSerialize()
     {
