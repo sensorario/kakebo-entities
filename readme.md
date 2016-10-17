@@ -27,3 +27,15 @@ class Movement extends KakeboMovement
     // change your Movement if needed
 }
 ```
+
+## Tests
+
+```bash
+prompt> ./runtests
+```
+
+## Coverage
+
+```bash
+prompt> ./coverage
+```
