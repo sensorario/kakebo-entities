@@ -33,6 +33,9 @@ class Movement
      */
     protected $day;
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getId()
     {
         return $this->id;
@@ -76,11 +79,21 @@ class Movement
 
     public function jsonSerialize()
     {
+        $day = $this->day;
+        if (!is_object($day)) {
+            $day = new \DateTime(
+                $this->day
+            );
+        }
+
+        $date = $day->format('Y-m-d');
+        $time = $day->format('H:i:s');
+
         return [
             'amount' => $this->amount,
             'description' => $this->description,
-            'date' => $this->day->format('Y-m-d'),
-            'time' => $this->day->format('H:i:s'),
+            'date' => $date,
+            'time' => $time,
         ];
     }
 }
