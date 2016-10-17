@@ -34,6 +34,11 @@ class Movement
     protected $day;
 
     /**
+     * @ORM\Column(name="owner", type="string", length=255, nullable=false)
+     */
+    protected $owner;
+
+    /**
      * @codeCoverageIgnore
      */
     public function getId()
@@ -75,6 +80,16 @@ class Movement
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function setOwner($owner)
+    {
+        $this->owner = $owner;
+    }
+
+    public function getOwner()
+    {
+        return $this->owner;
     }
 
     public function jsonSerialize()
