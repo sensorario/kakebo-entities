@@ -105,6 +105,7 @@ class Movement
         $time = $day->format('H:i:s');
 
         return [
+            'id' => $this->id,
             'amount' => $this->amount,
             'description' => $this->description,
             'date' => $date,
